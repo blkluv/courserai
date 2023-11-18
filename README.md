@@ -1,173 +1,42 @@
-<div align="center">
-  <a href="https://courserai.echoasync.com"> 
-  <img src="https://i.imgur.com/jvQMhoE.gif">
-  </a>
-  <h3>Courserai</h3>
-  <p>A web-app with which users can generate their own courses based on simple topics and keywords using the power of AI</p>
-</div>
+This is a Solana Hackathon project. The idea is to build a social media app on existing social media content centered around comment section. On Solicit, you can comment and earn.
 
-### Tech Stack
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-#### Frontend
+## Getting Started
 
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![nextjs](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![shadcn](https://img.shields.io/badge/SHADCN/UI-000000?style=for-the-badge&logo=shadertoy&logoColor=white)
-
-#### User authentication and database
-
-![Google OAuth](https://img.shields.io/badge/Google%20OAuth-4285F4?style=for-the-badge&logo=google&logoColor=white)
-![Prisma](https://img.shields.io/badge/Prisma-1B222D?style=for-the-badge&logo=prisma&logoColor=white)
-![PlanetScale](https://img.shields.io/badge/PlanetScale-1B222D?style=for-the-badge&logo=planetscale&logoColor=white)
-
-#### Web APIs
-
-![Youtube API](https://img.shields.io/badge/Youtube%20API-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
-![OpenAI API](https://img.shields.io/badge/OpenAI%20API-12A382?style=for-the-badge&logo=openai&logoColor=white)
-![Stripe](https://img.shields.io/badge/Stripe-008CDD?style=for-the-badge&logo=stripe&logoColor=white)
-![unsplash](https://img.shields.io/badge/Unsplash-000000?style=for-the-badge&logo=unsplash&logoColor=white)
-
-#### Deployment
-
-![DigitalOcean](https://img.shields.io/badge/DigitalOcean-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white)
-![Github Actions](https://img.shields.io/badge/Github%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-
-### Run Locally
-
-1. Clone the repo
-
-   ```bash
-   git clone https://github.com/EchooWww/courserai
-   ```
-
-2. Go to the project directory
-
-   ```bash
-   cd courserai
-   ```
-
-3. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-4. Create an `.env` file in the root directory and add your API keys
-
-   ```bash
-   DATABASE_URL=
-   NEXTAUTH_SECRET=
-   GOOGLE_CLIENT_ID=
-   GOOGLE_CLIENT_SECRET=
-   OPENAI_API_KEY=
-   UNSPLASH_API_KEY=
-   YOUTUBE_API_KEY=
-   STRIPE_API_KEY=
-   NEXTAUTH_URL=
-   STRIPE_WEBHOOK_SECRET=
-   ```
-
-5. Run the development server
-
-   ```bash
-   npm run dev
-   ```
-
-### Folder Structure
+First, run the development server:
 
 ```bash
-├── README.md
-├── components.json
-├── docker-compose.yml ## docker-compose file for prisma
-├── next.config.js
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── prisma ## prisma schema for database setup
-│   └── schema.prisma
-├── src
-│   ├── app ## Routes for the whole app with App Router
-│   │   ├── api ## api routes to handle backend requests
-│   │   │   ├── auth ## route for user authentication
-│   │   │   │   └── [...nextauth]
-│   │   │   │       └── route.ts
-│   │   │   ├── chapter ## route for chapter creation backend
-│   │   │   │   └── getInfo
-│   │   │   │       └── route.ts
-│   │   │   ├── course ## route for course creation backend
-│   │   │   │   └── createChapters
-│   │   │   │       └── route.ts
-│   │   │   ├── stripe ## route for stripe subscription backend
-│   │   │   │   └── route.ts
-│   │   │   └── webhook
-│   │   │       └── route.ts
-│   │   ├── course ## course page
-│   │   │   └── [...slug]
-│   │   │       ├── loading.tsx
-│   │   │       └── page.tsx
-│   │   ├── create ## course creation page
-│   │   │   ├── [courseId]
-│   │   │   │   ├── loading.tsx
-│   │   │   │   └── page.tsx
-│   │   │   ├── loading.tsx
-│   │   │   └── page.tsx
-│   │   ├── favicon.ico
-│   │   ├── gallery ## gallery page
-│   │   │   ├── loading.tsx
-│   │   │   └── page.tsx
-│   │   ├── global.css
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   └── settings
-│   │       ├── loading.tsx
-│   │       └── page.tsx
-│   ├── components ## reusable components
-│   │   ├── ChapterCard.tsx
-│   │   ├── ConfirmChapters.tsx
-│   │   ├── CourseSideBar.tsx
-│   │   ├── CreateCourseForm.tsx
-│   │   ├── GalleryCourseCard.tsx
-│   │   ├── MainVideoSummary.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── Providers.tsx
-│   │   ├── QuizCards.tsx
-│   │   ├── SignInButton.tsx
-│   │   ├── SubscriptionAction.tsx
-│   │   ├── SubscriptionButton.tsx
-│   │   ├── ThemeToggle.tsx
-│   │   ├── UserAccountNav.tsx
-│   │   ├── UserAvatar.tsx
-│   │   └── ui ## ui components from shadcn
-│   │       ├── avatar.tsx
-│   │       ├── button.tsx
-│   │       ├── dropdown-menu.tsx
-│   │       ├── form.tsx
-│   │       ├── input.tsx
-│   │       ├── label.tsx
-│   │       ├── progress.tsx
-│   │       ├── radio-group.tsx
-│   │       ├── separator.tsx
-│   │       ├── toast.tsx
-│   │       ├── toaster.tsx
-│   │       └── use-toast.ts
-│   ├── lib ## reusable functions
-│   │   ├── auth.ts ## authentication functions
-│   │   ├── db.ts ## database functions
-│   │   ├── gpt.ts ## openai prompt functions
-│   │   ├── stripe.ts ## stripe functions
-│   │   ├── subscription.ts ## subscription functions
-│   │   ├── unsplash.ts ## unsplash functions
-│   │   ├── utils.ts
-│   │   └── youtube.ts ## youtube functions
-│   └── validators
-│       └── course.ts ## course validation functions to be used in the create course form
-├── tailwind.config.js
-├── tailwind.config.ts ## tailwindcss config file
-└── tsconfig.json
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### References
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-[Eloitt Chong](https://www.youtube.com/watch?v=EGW2HS2tqAQ) | [Shadcn](https://ui.shadcn.com/) | [NextAuth.js](https://next-auth.js.org/) | [OpenAI](https://openai.com/) | [Stripe](https://stripe.com/) | [Unsplash](https://unsplash.com/) | [Youtube](https://developers.google.com/youtube/v3) | [Prisma](https://www.prisma.io/) | [PlanetScale](https://planetscale.com/) | [DigitalOcean](https://www.digitalocean.com/) | [Github Actions](https://docs.github.com/en/actions)
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
